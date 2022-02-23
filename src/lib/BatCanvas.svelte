@@ -81,13 +81,13 @@
   };
 
   const download = () => {
-    canvas.toBlob((blob) => {
-      try {
+    try {
+      canvas.toBlob((blob) => {
         saveAs(blob, `${batData.name}.png`);
-      } catch (exception) {
-        downloadError = true;
-      }
-    });
+      });
+    } catch (exception) {
+      downloadError = true;
+    }
   };
 
   onMount(() => {
