@@ -1,5 +1,5 @@
 <div class="space-y-2">
-  <p class="text-sm text-red-600">
+  <p class="text-sm text-red-600 uppercase">
     I do not own the rights to the "The Batman" logo. This is for educational
     and entertainment purposes only.
   </p>
