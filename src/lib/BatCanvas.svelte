@@ -3,6 +3,7 @@
   import type { BatData } from "../App.svelte";
   import batmanBg from "../assets/batman_logo_bg_1200.jpg";
   import { saveAs } from "file-saver";
+  import DownloadErrorModal from "./DownloadErrorModal.svelte";
 
   export let batData: BatData;
 
@@ -12,6 +13,7 @@
 
   let canvas: HTMLCanvasElement;
   let context: CanvasRenderingContext2D;
+  let downloadError: boolean = false;
 
   const backgroundImage = new Image();
   backgroundImage.src = batmanBg;
@@ -78,7 +80,11 @@
 
   const download = () => {
     canvas.toBlob((blob) => {
-      saveAs(blob, `${batData.name}.png`);
+      try {
+        saveAs(blob, `${batData.name}.png`);
+      } catch (exception) {
+        downloadError = true;
+      }
     });
   };
 
@@ -126,6 +132,14 @@
 
   <canvas bind:this={canvas} height="800" width="1200" class={$$props.class} />
 </div>
+
+{#if downloadError}
+  <DownloadErrorModal
+    on:close={() => {
+      downloadError = false;
+    }}
+  />
+{/if}
 
 <style lang="postcss">
   .canvas-button {
