@@ -1,8 +1,10 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from "svelte";
-  import type { BatData } from "../App.svelte";
-  import batmanBg from "../assets/batman_logo_bg_1200.jpg";
   import { saveAs } from "file-saver";
+
+  import type { BatData } from "../App.svelte";
+
+  import batmanBg from "../assets/batman_logo_bg_1200.jpg";
   import DownloadErrorModal from "./DownloadErrorModal.svelte";
 
   export let batData: BatData;
@@ -94,7 +96,6 @@
 
   $: {
     if (context && batData.name) {
-      console.log("Rendering!");
       generate();
     }
   }
