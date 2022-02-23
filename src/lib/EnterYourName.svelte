@@ -30,5 +30,5 @@
       GO
     </button>
   </form>
-  <div class="font-bengali font-[800] opacity-0">.</div>
+  <div class="font-bengali font-[800] opacity-0">স্বাগতম!</div>
 </div>
