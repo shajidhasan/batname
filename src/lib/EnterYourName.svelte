@@ -3,6 +3,7 @@
   import { createEventDispatcher } from "svelte";
 
   export let name: string;
+  export let ref: any;
 
   const dispatch = createEventDispatcher();
 </script>
@@ -20,6 +21,7 @@
       type="text"
       class="bg-transparent border-0 border-b-2 uppercase border-b-red-600 focus:ring-0 focus:border-b-red-600 text-center text-4xl w-full font-bold"
       bind:value={name}
+      bind:this={ref}
     />
 
     <button
