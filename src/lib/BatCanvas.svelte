@@ -48,7 +48,7 @@
 
     context.font = batData.isBengali
       ? "800 25px 'Baloo Da 2'"
-      : "700 25px 'Oswald'";
+      : "25px 'Anton'";
 
     const measurement = context.measureText(batData.name);
     const textScale = Math.min(
