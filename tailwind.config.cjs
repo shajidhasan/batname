@@ -4,7 +4,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Oswald', 'sans-serif'],
+        sans: ['Anton', 'sans-serif'],
         bengali: ["'Baloo Da 2'"]
       }
     },
