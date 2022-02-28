@@ -6,9 +6,12 @@
 </script>
 
 <script lang="ts">
+  import { onMount } from "svelte";
   import EnterYourName from "./lib/EnterYourName.svelte";
   import BatCanvas from "./lib/BatCanvas.svelte";
   import Disclaimer from "./lib/Disclaimer.svelte";
+
+  let nameRef: any;
 
   let batData: BatData = {
     name: null,
@@ -16,6 +19,10 @@
   };
 
   let nameDialogOpen: boolean = true;
+
+  onMount(() => {
+    nameRef.focus();
+  });
 
   const isBengali = (name: string) => {
     for (let c of name) {
@@ -49,6 +56,10 @@
   <Disclaimer />
 
   {#if nameDialogOpen}
-    <EnterYourName name={batData.name} on:submit={nameSubmit} />
+    <EnterYourName
+      name={batData.name}
+      on:submit={nameSubmit}
+      bind:ref={nameRef}
+    />
   {/if}
 </main>
